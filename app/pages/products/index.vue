@@ -6,6 +6,7 @@
   const selectedCategory = ref('Monitores')
 
   const categories = [
+    { name: 'iPhones', icon: 'i-heroicons-device-phone-mobile', id: 0 },
     { name: 'Monitores', icon: 'i-heroicons-computer-desktop', id: 1 },
     { name: 'PCs', icon: 'i-heroicons-cpu-chip', id: 2 },
     { name: 'Laptops', icon: 'i-heroicons-device-tablet', id: 3 },

@@ -8,6 +8,14 @@ export default defineNuxtConfig({
     fallback: 'dark',
     classSuffix: '' // Importante para que Tailwind detecte .light o .dark
   },
+  // 2. ESTO ES LO MÁS IMPORTANTE: Autoriza el host de Cloudflare
+  vite: {
+    server: {
+      allowedHosts: [
+        'mile-die-properties-excuse.trycloudflare.com'
+      ]
+    }
+  },
   future: {
     compatibilityVersion: 4,
   },
