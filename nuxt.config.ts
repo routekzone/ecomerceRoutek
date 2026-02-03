@@ -12,7 +12,7 @@ export default defineNuxtConfig({
   vite: {
     server: {
       allowedHosts: [
-        'aruba-reduce-strength-tribal.trycloudflare.com'
+        'tampa-monitoring-montreal-stones.trycloudflare.com'
       ]
     }
   },

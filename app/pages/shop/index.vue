@@ -13,7 +13,7 @@
 
     <header class="flex items-center justify-between mb-6 px-2">
       <UButton icon="i-heroicons-chevron-left"  variant="none"  @click="$router.back()" class="light:text-white bg-black/80 rounded-full px-2 py-2 hover:scale-110 transition-all duration-500" />
-      <h1 class="text-3xl font-black tracking-wider  uppercase text-white light:text-zinc-900"> bolsa </h1>
+      <h1 class="text-3xl font-black tracking-wider  uppercase text-white light:text-zinc-900"> My Car  </h1>
       <div class="w-5"></div>  
     </header>
 
@@ -64,8 +64,8 @@
       class="fixed inset-0 bottom-35 flex flex-col items-center justify-center pointer-events-none z-10"
       style="margin-bottom: 100px;"> 
       <div class="flex flex-col items-center opacity-40">
-          <UIcon name="i-heroicons-shopping-bag" class="w-16 h-16 mb-4 text-zinc-500" />
-          <p class="font-black italic uppercase tracking-[0.2em] text-[10px] text-zinc-400">Sin tu Hardware</p>
+          <UIcon name="i-heroicons-shopping-bag" class="w-16 h-16 mb-4 text-zinc-800" />
+          <p class="font-black uppercase tracking-[0.2em] text-[11px] text-zinc-800">Sin tu Hardware</p>
        </div>
     </div>
 
@@ -88,7 +88,7 @@
       </div>
 
       <UButton label="Continuar al pago" size="xl" block variant="none"
-        class="rounded-2xl bg-black text-white font-black hover:scale-105 active:bg-linear-to-r from-green-700 to-indigo-800 transition-all duration-500 py-4 uppercase text-xs tracking-widest shadow-[0_0_20px_rgba(0,230,118,0.3)]" />
+        class="rounded-2xl bg-black text-white font-black hover:scale-105 active:bg-linear-to-r from-green-700 to-indigo-800 transition-all duration-500 py-4 uppercase text-xs tracking-widest shadow-xl" />
     </div>
   </div>
 </template>
