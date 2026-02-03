@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
-  devtools: { enabled: true },
+  devtools: { enabled: false },
   modules: ['@nuxt/ui', '@pinia/nuxt'],
   colorMode: {
     preference: 'dark', // Tema inicial
@@ -12,7 +12,7 @@ export default defineNuxtConfig({
   vite: {
     server: {
       allowedHosts: [
-        'mile-die-properties-excuse.trycloudflare.com'
+        'aruba-reduce-strength-tribal.trycloudflare.com'
       ]
     }
   },

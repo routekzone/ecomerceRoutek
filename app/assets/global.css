@@ -2,11 +2,22 @@
 @import "@nuxt/ui";
 
 :root {
-  --background: #050505; /* Tu negro Routek */
-  --foreground: #ededed;
+  --background: #000000; /* Tu negro Routek */
+  --foreground: #ffffff;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
 }
+
+.typeScroll {
+  scrollbar-width: none !important;
+  /* -ms-overflow-style: none !important; */
+}
+
+/* .typeScroll::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+} */
