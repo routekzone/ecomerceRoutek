@@ -61,7 +61,7 @@ const formatPrice = (val: number) => `S/ ${val.toFixed(2)}`;
           <div class="min-w-full snap-center px-0">
             <div class="h-94 bg-white overflow-hidden shadow-sm">
               <img
-                src="https://plus.unsplash.com/premium_photo-1673502751768-586478eb3fcb?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                src="https://images.unsplash.com/photo-1611310102866-e7d3918cf473?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 class="w-full h-full object-cover" alt="Banner 1" />
             </div>
           </div>
