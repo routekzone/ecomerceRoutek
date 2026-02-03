@@ -187,7 +187,7 @@ const formatPrice = (val: number) => `S/ ${val.toFixed(2)}`;
 
         <div class="flex flex-col flex-wrap h-[580px] gap-x-2 gap-y-2 overflow-x-auto typeScroll pb-6">
           <NuxtLink v-for="product in masVendidosBase" :key="product.id" :to="`/products/${product.id}`"
-            class="w-[180px] h-[260px] bg-gray-100 rounded-sm p-4 relative shadow-lg shadow-blue-200/40 border border-zinc-200/30 shrink-0">
+            class="h-[260px] w-[180px] bg-gray-100 rounded-sm p-4 relative shadow-lg shadow-blue-200/40 border border-zinc-200/30 shrink-0">
             <div class="h-24 flex items-center justify-center mb-3">
               <img :src="product.image" class="max-h-full object-contain" />
             </div>
