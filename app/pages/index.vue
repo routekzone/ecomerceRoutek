@@ -23,7 +23,7 @@ const brands = [
   { name: 'HP', icon: 'i-simple-icons-hp' }
 ];
 
-const getTestImage = (index:any) => {
+const getTestImage = (index: any) => {
   const images = [
     'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500', // Audífonos
     'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500', // Reloj/Tech
@@ -44,7 +44,8 @@ const formatPrice = (val: number) => `S/ ${val.toFixed(2)}`;
 <template>
   <div class="min-h-screen bg-white flex flex-col font-sans overflow-x-hidden">
 
-    <header class="flex justify-center items-center mb-0 px-6 py-3 bg-black/95">
+    <!-- OCULTA EN WEB -->
+    <header class="md:hidden flex justify-center items-center mb-0 px-6 py-3 bg-black/95">
       <div class="flex items-center gap-2">
         <h1 class="text-xl text-white tracking-[10px] uppercase font-normal ">Routek</h1>
         <div class="w-9 h-9 rounded-xl flex items-center justify-center font-bold text-[#a9e032] shadow-lg">
@@ -56,7 +57,7 @@ const formatPrice = (val: number) => `S/ ${val.toFixed(2)}`;
     <div class="px-4 flex-1">
 
       <!-- seccion para banners  -->
-      <section class="mb-3 -mx-4">
+      <section class="mb-3 md:mb-0 -mx-4">
         <div class="flex overflow-x-auto typeScroll snap-x snap-mandatory">
           <div class="min-w-full snap-center px-0">
             <div class="h-94 bg-white overflow-hidden shadow-sm">
@@ -80,15 +81,15 @@ const formatPrice = (val: number) => `S/ ${val.toFixed(2)}`;
             </div>
           </div>
         </div>
-        <div class="flex justify-center gap-1.5 mt-3">
+        <div class="flex justify-center md:hidden gap-1.5 mt-3">
           <div class="w-1.5 h-1.5 rounded-full bg-zinc-300"></div>
           <div class="w-4 h-1.5 rounded-full bg-zinc-900"></div>
           <div class="w-1.5 h-1.5 rounded-full bg-zinc-300"></div>
         </div>
       </section>
 
-      <!-- NUESTRAS MARCAS  -->
-      <section class="-mb-24">
+      <!-- MARCAS MOBILE  -->
+      <section class="-mb-24 md:hidden">
         <div class="flex flex-col flex-wrap h-48 gap-y-6 gap-x-5 overflow-x-auto typeScroll -mx-4 px-4 pb-2">
           <div v-for="brand in brands" :key="brand.name" class="flex flex-col items-center gap-2 shrink-0">
             <div
@@ -99,6 +100,24 @@ const formatPrice = (val: number) => `S/ ${val.toFixed(2)}`;
           </div>
         </div>
       </section>
+
+      <!-- MARCAS WEB -->
+      <section class="hidden md:block  bg-black py-8 -mx-4 mb-12 shadow-inner">
+        <div class="max-w-7xl mx-auto px-4">
+          <div
+            class="flex flex-nowrap justify-start items-center overflow-x-auto typeScroll  gap-16 opacity-70 hover:opacity-100 transition-opacity duration-500">
+            <div v-for="brand in brands" :key="brand.name" class="flex items-center group cursor-pointer">
+              <UIcon :name="brand.icon"
+                class="w-8 h-8 md:w-10 md:h-10 text-zinc-400 group-hover:text-[#a9e032] transition-colors" />
+              <span
+                class="ml-2 text-[10px] font-black uppercase tracking-widest text-zinc-500 group-hover:text-white transition-colors hidden md:block">
+                {{ brand.name }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
 
       <!-- OFERTAS  -->
       <section class=" -mx-4 py-8 px-4" v-if="ofertasHot.length">
@@ -131,7 +150,7 @@ const formatPrice = (val: number) => `S/ ${val.toFixed(2)}`;
               <div class="flex items-center gap-2 mt-1">
                 <span class="text-[#553aed] font-black text-lg">{{ formatPrice(product.price) }}</span>
                 <span class="text-zinc-700 line-through text-[12px] font-bold">{{ formatPrice(product.oldPrice!)
-                  }}</span>
+                }}</span>
               </div>
             </div>
           </NuxtLink>
@@ -209,13 +228,105 @@ const formatPrice = (val: number) => `S/ ${val.toFixed(2)}`;
           </NuxtLink>
         </div>
       </section>
+
+      <!-- SECCION SORTES ROUTEK -->
+      <section class="mt-20 px-4 md:px-8 max-w-7xl mx-auto">
+        <div class="mb-10">
+          <div class="flex items-center gap-2 mb-2">
+            <div class="w-4 h-8 bg-rose-600 rounded-sm"></div>
+            <span class="text-rose-600 font-bold text-sm">Comunidad</span>
+          </div>
+          <h2 class="text-4xl font-black tracking-tighter uppercase text-zinc-900">
+            Sorteos <span class="text-[#a9e032]">Exclusivos</span>
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-4 h-auto md:h-[600px]">
+
+          <div class="md:col-span-2 md:row-span-2 bg-black rounded-3xl overflow-hidden relative group cursor-pointer">
+            <img src="https://images.unsplash.com/photo-1603481546238-487240415921?q=80&w=1470"
+              class="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700"
+              alt="Setup Gamer">
+            <div class="absolute inset-0 p-8 flex flex-col justify-end">
+              <h3 class="text-white text-3xl font-black uppercase mb-2">Setup Rok Pro 2026</h3>
+              <p class="text-zinc-300 text-sm mb-4 max-w-xs">Participa por un set completo de periféricos de nuestra
+                línea premium.</p>
+              <button
+                class="w-fit text-white font-bold underline decoration-[#a9e032] decoration-2 underline-offset-4 hover:text-[#a9e032] transition-colors">
+                Inscribirse ahora
+              </button>
+            </div>
+          </div>
+
+          <div class="md:col-span-2 bg-zinc-900 rounded-3xl overflow-hidden relative group cursor-pointer">
+            <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1470"
+              class="w-full h-full object-cover opacity-50 group-hover:scale-105 transition-transform duration-700"
+              alt="Gaming">
+            <div class="absolute inset-0 p-6 flex flex-col justify-center">
+              <h4 class="text-white text-xl font-black uppercase">Laptops de última gen</h4>
+              <button class="text-white text-sm font-bold underline mt-2 text-left">Shop Now</button>
+            </div>
+          </div>
+
+          <div class="bg-zinc-100 rounded-3xl overflow-hidden relative group cursor-pointer">
+            <div class="absolute inset-0 p-6 flex flex-col justify-end z-10">
+              <h4 class="text-zinc-900 text-lg font-black uppercase">Audio Hi-Fi</h4>
+              <button class="text-zinc-600 text-[10px] font-bold underline mt-1 text-left">Ver más</button>
+            </div>
+            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=500"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              alt="Audifonos">
+          </div>
+
+          <div class="bg-black rounded-3xl overflow-hidden relative group cursor-pointer">
+            <div class="absolute inset-0 p-6 flex flex-col justify-end z-10">
+              <h4 class="text-white text-lg font-black uppercase italic text-[#a9e032]">Mystery Box</h4>
+              <button class="text-zinc-400 text-[10px] font-bold underline mt-1 text-left">Sorpresa</button>
+            </div>
+            <img src="https://images.unsplash.com/photo-1611310102866-e7d3918cf473?q=80&w=500"
+              class="w-full h-full object-cover opacity-40 group-hover:scale-110 transition-transform duration-500"
+              alt="Product">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20 py-10 border-t border-zinc-100">
+          <div class="flex flex-col items-center text-center group">
+            <div
+              class="w-16 h-16 bg-zinc-100 rounded-full flex items-center justify-center mb-4 group-hover:bg-black transition-colors">
+              <UIcon name="i-heroicons-truck" class="w-8 h-8 text-black group-hover:text-[#a9e032]" />
+            </div>
+            <h5 class="font-black uppercase text-sm mb-1">Envíos Flash</h5>
+            <p class="text-zinc-500 text-xs">Gratis en órdenes mayores a S/ 200</p>
+          </div>
+
+          <div class="flex flex-col items-center text-center group">
+            <div
+              class="w-16 h-16 bg-zinc-100 rounded-full flex items-center justify-center mb-4 group-hover:bg-black transition-colors">
+              <UIcon name="i-heroicons-headphones" class="w-8 h-8 text-black group-hover:text-[#a9e032]" />
+            </div>
+            <h5 class="font-black uppercase text-sm mb-1">Soporte 24/7</h5>
+            <p class="text-zinc-500 text-xs">Atención personalizada para tu setup</p>
+          </div>
+
+          <div class="flex flex-col items-center text-center group">
+            <div
+              class="w-16 h-16 bg-zinc-100 rounded-full flex items-center justify-center mb-4 group-hover:bg-black transition-colors">
+              <UIcon name="i-heroicons-check-badge" class="w-8 h-8 text-black group-hover:text-[#a9e032]" />
+            </div>
+            <h5 class="font-black uppercase text-sm mb-1">Garantía Rok</h5>
+            <p class="text-zinc-500 text-xs">Protección total en todos tus productos</p>
+          </div>
+        </div>
+      </section>
     </div>
+
+
 
     <footer class="bg-zinc-950 px-8 pt-12 pb-32 w-full mt-auto">
       <div class="flex flex-col items-center gap-8">
         <div class="flex flex-col items-center gap-3">
           <div class="w-12 h-12 flex items-center justify-center font-black text-black text-lg">
-             <img src="/images/rouk.png" class="w-full h-full" alt="Icono Rok" />
+            <img src="/images/rouk.png" class="w-full h-full" alt="Icono Rok" />
           </div>
           <div class="text-center">
             <h2 class="text-[22px] font-normal uppercase text-white tracking-widest">Routek</h2>
@@ -252,3 +363,32 @@ const formatPrice = (val: number) => `S/ ${val.toFixed(2)}`;
     </footer>
   </div>
 </template>
+
+<style>
+/* Animaciones personalizadas */
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee-reverse {
+  display: flex;
+  width: max-content;
+  animation: marquee-reverse 30s linear infinite;
+}
+
+.pause-animation {
+  animation-play-state: paused !important;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marquee-reverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+</style>
